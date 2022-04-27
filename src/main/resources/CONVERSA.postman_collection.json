@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "8878a5da-54c7-4316-90d2-9c5aa67d992e",
+		"name": "CONVERSA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET | FIND ALL CONVERSAS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/conversas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"conversas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET | FIND BY ID CONVERSA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/conversas/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"conversas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE | CONVERSA",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/conversas/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"conversas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST | CONVERSA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": {\r\n        \"id\": 1\r\n    },\r\n    \"chat\": {\r\n        \"id\": 1\r\n    },\r\n    \"conteudo\": \"Essa e uma mensagem de teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/conversas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"conversas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT | CONVERSA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"usuario\": {\r\n        \"id\": 1\r\n    },\r\n    \"chat\": {\r\n        \"id\": 1\r\n    },\r\n    \"conteudo\": \"Essa e uma mensagem de teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/conversas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"conversas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -41,7 +41,9 @@ public class ConversaController {
 	
 	@PostMapping
 	public ResponseEntity<Conversa> postConversas(@RequestBody Conversa conversa){
-		
+		System.out.println(conversa.getUsuario().getId());
+		System.out.println(conversa.getChat().getId());
+		System.out.println(conversa.getConteudo());
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(conversa));
 	}
 	

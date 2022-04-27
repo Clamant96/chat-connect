@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,7 +32,10 @@ public class Conversa {
 	@ManyToOne
 	@JsonIgnoreProperties("conversas")
 	private Chat chat;
-
+	
+	@NotNull
+	private String conteudo;
+	
 	public long getId() {
 		return id;
 	}
@@ -62,6 +66,14 @@ public class Conversa {
 
 	public void setChat(Chat chat) {
 		this.chat = chat;
+	}
+
+	public String getConteudo() {
+		return conteudo;
+	}
+
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
 	}
 	
 }
