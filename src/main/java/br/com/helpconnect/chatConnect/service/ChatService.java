@@ -1,5 +1,7 @@
 package br.com.helpconnect.chatConnect.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +53,22 @@ public class ChatService {
 		}
 
 		return null;
+	}
+	
+	/* FILTRA OS CHATS ONDE O USUARIO ESTA CADASTRADO */
+	public List<Chat> armazenaChatsUsuarioPorId(long idUsuario) {
+		
+		List<Chat> listaChatsDoUsuario = new ArrayList<>();
+		
+		for (int i = 0; i < chatRepository.findAll().size(); i++) {
+			for (int j = 0; j < chatRepository.findAll().get(i).getUsuarios().size(); j++) {
+				if(chatRepository.findAll().get(i).getUsuarios().get(j).getId() == idUsuario) {
+					listaChatsDoUsuario.add(chatRepository.findAll().get(i));
+				}
+			}
+		}
+		
+		return listaChatsDoUsuario;
 	}
 	
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.helpconnect.chatConnect.model.Chat;
 import br.com.helpconnect.chatConnect.repository.ChatRepository;
+import br.com.helpconnect.chatConnect.service.ChatService;
 
 @RestController
 @RequestMapping("/chats")
@@ -25,6 +26,9 @@ public class ChatController {
 
 	@Autowired
 	private ChatRepository repository;
+	
+	@Autowired
+	private ChatService chatService;
 	
 	@GetMapping
 	public ResponseEntity<List<Chat>> findAllChats() {
@@ -37,6 +41,11 @@ public class ChatController {
 		 return repository.findById(id)
 				 .map(resp -> ResponseEntity.ok(resp))
 				 .orElse(ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/conversas-chat/{id}")
+	public ResponseEntity<List<Chat>> findByIdChatsUsuario(@PathVariable long id) {
+		 return ResponseEntity.ok(chatService.armazenaChatsUsuarioPorId(id));
 	}
 	
 	@PostMapping
