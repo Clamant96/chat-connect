@@ -90,6 +90,12 @@ public class UsuarioController {
 		
 	}
 	
+	@GetMapping("/usuario_chats/conversa/{idUsuario}/{idChat}")
+	public ResponseEntity<Usuario> criaChatUsuarios(@PathVariable long idUsuario, @PathVariable long idChat) {
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(chatService.iniciarChat(idUsuario, idChat));
+	}
+	
 	@PostMapping("/usuario_chats/conversa/{idUsuario}/{idChat}")
 	public ResponseEntity<Usuario> updateUsuario(@PathVariable long idUsuario, @PathVariable long idChat) {
 		
