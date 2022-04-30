@@ -1,6 +1,8 @@
 package br.com.helpconnect.chatConnect.service;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
@@ -70,6 +72,18 @@ public class UsuarioService {
 		usuario.setPassword(senhaEncoder);
 		
 		return Optional.of(repository.save(usuario));
+	}
+	
+	public List<Usuario> findByUsusuariosConversa(long id) {
+		List<Usuario> listaUsuario = new ArrayList<>();
+		
+		for(int i = 0; i < repository.findAll().size(); i++) {
+			if(repository.findAll().get(i).getId() != id) {
+				listaUsuario.add(repository.findAll().get(i));
+			}
+		}
+		
+		return listaUsuario;
 	}
 	
 }
