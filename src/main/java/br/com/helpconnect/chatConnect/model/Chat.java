@@ -32,11 +32,11 @@ public class Chat {
 	
 	private String img;
 	
-	@OneToMany(mappedBy = "chat", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("chat")
 	private List<Conversa> conversas;
 	
-	@ManyToMany(mappedBy = "chats", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "chats", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({"username", "password", "chats", "img", "conversas"})
 	private List<Usuario> usuarios = new ArrayList<>();
 	

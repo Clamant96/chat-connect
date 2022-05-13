@@ -24,12 +24,12 @@ public class ProcessorService {
     @Async
     public void execute() {
         try {
-            Thread.sleep(2000L);
+            Thread.sleep(1000L);
             template.convertAndSend("/statusProcessor", gerarMensagem(1));
-            Thread.sleep(2000L);
+            /*Thread.sleep(2000L);
             template.convertAndSend("/statusProcessor", gerarMensagem(2));
             Thread.sleep(2000L);
-            template.convertAndSend("/statusProcessor", gerarMensagem(3));
+            template.convertAndSend("/statusProcessor", gerarMensagem(3));*/
         } catch (InterruptedException e) {
             log.error("Erro durante o procesamento.", e);
         }

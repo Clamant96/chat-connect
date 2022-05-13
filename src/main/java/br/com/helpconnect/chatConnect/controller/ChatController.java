@@ -37,6 +37,9 @@ public class ChatController {
 	}
 	
 	@GetMapping("/{id}")
+	/*public ResponseEntity<Chat> findByIdChat(@PathVariable long id) {
+		 return chatService.decodificaConversasChat(id);
+	}*/
 	public ResponseEntity<Chat> findByIdChat(@PathVariable long id) {
 		 return repository.findById(id)
 				 .map(resp -> ResponseEntity.ok(resp))

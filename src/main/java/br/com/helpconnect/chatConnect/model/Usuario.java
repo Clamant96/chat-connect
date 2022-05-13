@@ -34,11 +34,11 @@ public class Usuario {
 	
 	private String img;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Conversa> conversas;
 	
-	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 	  name = "usuario_chats", 
 	  joinColumns = @JoinColumn(name = "usuario_id"), 

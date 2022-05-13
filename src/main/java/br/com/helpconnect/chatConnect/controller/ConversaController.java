@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.helpconnect.chatConnect.model.Conversa;
 import br.com.helpconnect.chatConnect.repository.ConversaRepository;
+import br.com.helpconnect.chatConnect.service.ConversaService;
 
 @RestController
 @RequestMapping("/conversas")
@@ -25,6 +26,9 @@ public class ConversaController {
 	
 	@Autowired
 	private ConversaRepository repository;
+	
+	@Autowired
+	private ConversaService conversaService;
 	
 	@GetMapping
 	public ResponseEntity<List<Conversa>> findAllConversas() {
@@ -44,6 +48,9 @@ public class ConversaController {
 		System.out.println(conversa.getUsuario().getId());
 		System.out.println(conversa.getChat().getId());
 		System.out.println(conversa.getConteudo());
+		
+		//conversa = conversaService.codificaConversasChat(conversa);
+		
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(conversa));
 	}
 	
