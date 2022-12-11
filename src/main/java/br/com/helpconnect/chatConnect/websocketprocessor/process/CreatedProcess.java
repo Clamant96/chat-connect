@@ -9,5 +9,19 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CreatedProcess {
     private LocalDateTime startAt;
+    
+	/*public CreatedProcess(LocalDateTime startAt) {
+		this.startAt = startAt;
+	}*/
+
+	public LocalDateTime getStartAt() {
+		return startAt;
+	}
+
+	public void setStartAt(LocalDateTime startAt) {
+		this.startAt = startAt;
+	}
+    
+    
 }
 

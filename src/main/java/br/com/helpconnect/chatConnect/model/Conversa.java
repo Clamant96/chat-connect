@@ -36,6 +36,8 @@ public class Conversa {
 	@NotNull
 	private String conteudo;
 	
+	private String img;
+	
 	public long getId() {
 		return id;
 	}
@@ -74,6 +76,14 @@ public class Conversa {
 
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 }

@@ -48,6 +48,7 @@ public class ConversaController {
 		System.out.println(conversa.getUsuario().getId());
 		System.out.println(conversa.getChat().getId());
 		System.out.println(conversa.getConteudo());
+		System.out.println(conversa.getImg());
 		
 		//conversa = conversaService.codificaConversasChat(conversa);
 		

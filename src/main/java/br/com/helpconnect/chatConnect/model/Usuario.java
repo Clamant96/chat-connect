@@ -47,6 +47,10 @@ public class Usuario {
 	@JsonIgnoreProperties({"nome", "tipo", "usuarios", "img", "conversas"})
 	private List<Chat> chats = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<Figurinha> figurinha;
+	
 	public long getId() {
 		return id;
 	}
@@ -93,6 +97,14 @@ public class Usuario {
 	
 	public void setChats(List<Chat> chats) {
 		this.chats = chats;
+	}
+
+	public List<Figurinha> getFigurinha() {
+		return figurinha;
+	}
+
+	public void setFigurinha(List<Figurinha> figurinha) {
+		this.figurinha = figurinha;
 	}
 	
 }

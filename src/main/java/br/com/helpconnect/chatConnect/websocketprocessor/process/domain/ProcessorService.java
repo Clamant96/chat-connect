@@ -31,7 +31,7 @@ public class ProcessorService {
             Thread.sleep(2000L);
             template.convertAndSend("/statusProcessor", gerarMensagem(3));*/
         } catch (InterruptedException e) {
-            log.error("Erro durante o procesamento.", e);
+            System.out.println("Erro durante o procesamento."+ e);
         }
     }
 
