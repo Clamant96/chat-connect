@@ -72,8 +72,8 @@ public class FileUploadController {
 	public boolean handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes, @PathVariable("username") String username, @PathVariable("nomeArquivo") String nomeArquivo) {
 		try {
 			
-			//String caminho = "/home/kevin/aplicacoes/arquivosUpload/"; // DEFINE O CAMINHO PADRAO DO SERVIDOR DE IMAGENS
-			String caminho = "D:/teste/";
+			String caminho = "/home/kevin/aplicacoes/arquivosUpload/"; // DEFINE O CAMINHO PADRAO DO SERVIDOR DE IMAGENS
+			// String caminho = "D:/teste/";
 			
 			storageService.store(file);
 			redirectAttributes.addFlashAttribute("message",

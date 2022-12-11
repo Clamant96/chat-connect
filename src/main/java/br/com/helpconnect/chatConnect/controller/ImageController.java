@@ -23,10 +23,11 @@ public class ImageController {
 	public ResponseEntity<byte[]> visualizarImagem(@PathVariable String usuario, @PathVariable String imagem) throws IOException {
 		
 		// System.out.println("C:\\Users\\kevin\\Desktop\\arquivosUpload\\"+ usuario +"\\"+ imagem);
-		String caminho = "D:/teste/";
+		// String caminho = "D:/teste/";
+		String caminho = "/home/kevin/aplicacoes/arquivosUpload/";
 		
-		// InputStream initialStream = new FileInputStream(new File("/home/kevin/aplicacoes/arquivosUpload/"+ usuario +"/"+ imagem));
 		InputStream initialStream = new FileInputStream(new File(caminho + usuario +"/"+ imagem));
+		// InputStream initialStream = new FileInputStream(new File(caminho + usuario +"/"+ imagem));
 		
 		System.out.println(caminho + usuario +"/"+ imagem);
 		

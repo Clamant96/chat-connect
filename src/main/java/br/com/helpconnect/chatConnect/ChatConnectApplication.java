@@ -13,17 +13,17 @@ import br.com.helpconnect.chatConnect.storage.StorageService;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
-// public class ChatConnectApplication extends SpringBootServletInitializer {
-public class ChatConnectApplication {
+public class ChatConnectApplication extends SpringBootServletInitializer {
+// public class ChatConnectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ChatConnectApplication.class, args);
 	}
 	
-	/*@Override
+	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ChatConnectApplication.class);
-	}*/
+	}
 	
 	@Bean
 	CommandLineRunner init(StorageService storageService) {
