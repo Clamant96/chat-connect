@@ -19,6 +19,7 @@ public class ProcessorService {
     @Autowired
     public ProcessorService(SimpMessagingTemplate template) {
         this.template = template;
+        
     }
 
     @Async

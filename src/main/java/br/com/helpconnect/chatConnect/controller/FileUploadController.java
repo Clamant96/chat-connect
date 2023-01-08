@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -72,8 +73,9 @@ public class FileUploadController {
 	public boolean handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes, @PathVariable("username") String username, @PathVariable("nomeArquivo") String nomeArquivo) {
 		try {
 			
-			String caminho = "/home/kevin/aplicacoes/arquivosUpload/"; // DEFINE O CAMINHO PADRAO DO SERVIDOR DE IMAGENS
-			// String caminho = "D:/teste/";
+			// String caminho = "/home/kevin/aplicacoes/arquivosUpload/"; // DEFINE O CAMINHO PADRAO DO SERVIDOR DE IMAGENS
+			String caminhoParSerDeletado = "D:\\projetos-eclipse\\chat-connect\\src\\main\\resources\\uploads";
+			String caminho = "D:/teste/";
 			
 			storageService.store(file);
 			redirectAttributes.addFlashAttribute("message",
@@ -122,12 +124,13 @@ public class FileUploadController {
 			// file.transferTo(new File(caminho + username +"\\"+ String.valueOf(rd.nextLong()).replace("-", "") + extensao)); // SALVA O ARQUIVO NO DESTINO ESPECIFICADO
 			file.transferTo(new File(caminho + username +"/"+ nomeArquivo + extensao)); // SALVA O ARQUIVO NO DESTINO ESPECIFICADO
 			
-			//System.out.println(System.getProperty("user.dir") +"\\src\\main\\resources\\uploads");
+			FileUtils.cleanDirectory(new File(caminhoParSerDeletado)); // A PASTA DEVE SER ZERADA PARA QUE ARQUIVOS COM O MESMO NOME, POSSAM SER CARREGADOS NOVAMENTE
 			
-			// return "redirect:/";
 			return true;
 		}catch(Exception ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace();
+			
+			System.out.println(ex.getLocalizedMessage());
 			
 			return false;
 		}
@@ -142,7 +145,8 @@ public class FileUploadController {
 	public boolean deletaImagemSubstituida(@PathVariable("username") String username, @PathVariable("nomeArquivo") String nomeArquivo) {
 		
 		try {
-			String caminho = "/home/kevin/aplicacoes/arquivosUpload/";
+			// String caminho = "/home/kevin/aplicacoes/arquivosUpload/";
+			String caminho = "D:/teste/";
 			
 			// System.out.println(caminho + username +"\\"+ nomeArquivo);
 			

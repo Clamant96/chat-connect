@@ -22,6 +22,5 @@ public class CreatedProcess {
 		this.startAt = startAt;
 	}
     
-    
 }
 
