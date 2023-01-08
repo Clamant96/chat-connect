@@ -74,7 +74,8 @@ public class FileUploadController {
 		try {
 			
 			// String caminho = "/home/kevin/aplicacoes/arquivosUpload/"; // DEFINE O CAMINHO PADRAO DO SERVIDOR DE IMAGENS
-			String caminhoParSerDeletado = "D:\\projetos-eclipse\\chat-connect\\src\\main\\resources\\uploads";
+			// String caminhoParSerDeletado = "D:\\projetos-eclipse\\chat-connect\\src\\main\\resources\\uploads";
+			String caminhoParSerDeletado = new File("").getAbsolutePath() +"\\src\\main\\resources\\uploads";
 			String caminho = "D:/teste/";
 			
 			storageService.store(file);
