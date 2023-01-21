@@ -35,6 +35,7 @@ import br.com.helpconnect.chatConnect.storage.StorageService;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FileUploadController {
 
+	@Autowired
 	private final StorageService storageService;
 
 	@Autowired

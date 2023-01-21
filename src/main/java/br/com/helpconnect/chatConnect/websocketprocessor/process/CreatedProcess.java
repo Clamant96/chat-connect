@@ -8,6 +8,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CreatedProcess {
+	
     private LocalDateTime startAt;
     
 	public CreatedProcess(LocalDateTime startAt) {
