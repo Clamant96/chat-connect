@@ -106,6 +106,8 @@ public class FileUploadController {
 			
 			String extensao = "";
 			
+			// System.out.println("TYPE: "+ file.getContentType());
+			
 			if(file.getContentType().equals("image/jpeg")) {
 				extensao = ".jpeg";
 				
@@ -117,6 +119,9 @@ public class FileUploadController {
 				
 			}else if(file.getContentType().equals("image/svg+xml")) {
 				extensao = ".svg";
+				
+			}else if(file.getContentType().equals("video/mp4")) {
+				extensao = ".mp4";
 				
 			}else {
 				return false;
