@@ -15,7 +15,6 @@ import br.com.helpconnect.chatConnect.storage.StorageService;
 @EnableConfigurationProperties(StorageProperties.class)
 public class ChatConnectApplication extends SpringBootServletInitializer {
 // public class ChatConnectApplication {
-
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ChatConnectApplication.class, args);
@@ -33,5 +32,6 @@ public class ChatConnectApplication extends SpringBootServletInitializer {
 			storageService.init();
 		};
 	}
+	
 
 }
